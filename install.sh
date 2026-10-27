@@ -12,8 +12,8 @@ if [ ! -d "$ZSH_CUSTOM/themes/powerlevel10k" ]; then
     "$ZSH_CUSTOM/themes/powerlevel10k"
 fi
 
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-history-substring-search ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-history-substring-search
+
 ln -sf ~/dotfiles/.zshrc ~
 ln -sf ~/dotfiles/.p10k.zsh ~
-
-zsh_path="$(command -v zsh)"
-chsh -s "$zsh_path" "$USER"
