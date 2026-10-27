@@ -10,3 +10,5 @@ ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
 if [ ! -d "$ZSH_CUSTOM/themes/powerlevel10k" ]; then
   git clone --depth=1 https://github.com "$ZSH_CUSTOM/themes/powerlevel10k"
 fi
+
+printf 'dotfiles installed: %s\n' "$(date -Iseconds)" > "$HOME/.dotfiles-installed"
