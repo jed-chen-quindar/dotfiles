@@ -12,4 +12,8 @@ if [ ! -d "$ZSH_CUSTOM/themes/powerlevel10k" ]; then
     "$ZSH_CUSTOM/themes/powerlevel10k"
 fi
 
-printf 'dotfiles installed: %s\n' "$(date -Iseconds)" > "$HOME/.dotfiles-installed"
+ln -sf ~/dotfiles/.zshrc ~
+ln -sf ~/dotfiles/.p10k.zsh ~
+
+zsh_path="$(command -v zsh)"
+chsh -s "$zsh_path" "$USER"
