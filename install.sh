@@ -1,14 +1,15 @@
-#!/bin/bash
+#!/usr/bin/env bash
+set -euo pipefail
 
-# 1. Install Oh My Zsh (Unattended mode)
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
-  KEEP_ZSHRC=yes RUNZSH=no sh -c "$(curl -fsSL https://githubusercontent.com)"
+  KEEP_ZSHRC=yes RUNZSH=no sh -c \
+    "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
 
-# 2. Install Powerlevel10k theme into the Oh My Zsh custom folder
 ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
 if [ ! -d "$ZSH_CUSTOM/themes/powerlevel10k" ]; then
-  git clone --depth=1 https://github.com "$ZSH_CUSTOM/themes/powerlevel10k"
+  git clone --depth=1 https://github.com/romkatv/powerlevel10k.git \
+    "$ZSH_CUSTOM/themes/powerlevel10k"
 fi
 
 printf 'dotfiles installed: %s\n' "$(date -Iseconds)" > "$HOME/.dotfiles-installed"
